@@ -1,25 +1,25 @@
 const db = require('./db');
 
-//Create---------------------------------------------------------------------------//
+// Create---------------------------------------------------------------------------//
 exports.create = (payload, err, success) => {
   db.user.create(payload).then(success).catch(err);
 };
 
-//READ----------------------------------------------------------------------------//
+// READ----------------------------------------------------------------------------//
 exports.findAll = (err, success) => {
   db.user.findAll().then(success).catch(err);
-}
+};
 
 exports.find = (payload, err, success) => {
   db.user.find({
     where: {
       id: payload.id,
     },
-//*Find all relations in sequelize*//
+// *Find all relations in sequelize*//
     include: [{
       all: true,
       nested: true,
-    }]
+    }],
   }).then(success).catch(err);
 };
 
@@ -32,25 +32,24 @@ exports.findShortURL = (payload, err, success) => {
     include: [{
       all: true,
       nested: true,
-    }]
+    }],
   }).then(success).catch(err);
-}
+};
 
 
-//UPDATE---------------------------------------------------------------------------//
+// UPDATE---------------------------------------------------------------------------//
 exports.update = (payload, err, success) => {
   db.user.update({
     where: {
       id: payload.id,
-    }
+    },
   }).then((existingData) => {
     existingData.updateAttributes(payload).then(success).catch(err);
   }).catch(err);
 };
 
 
-
-//Delete--------------------------------------------------------------------------//
+// Delete--------------------------------------------------------------------------//
 exports.destroy = (payload, err, success) => {
   db.user.destroy({
     where: {

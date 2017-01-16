@@ -1,6 +1,7 @@
 Dynamic Url Shortener by Flavio Cassini
+v1.1.0
 ---------Installation Instructions------------------
-1. 1.) download the master copy or clone it in your github.
+1. 1.) download the master copy or clone it in your github. \n
 2.) if using a MacOS install homebrew by running this code into your terminal
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 3.) make new directory in terminal by running:  mkdir ~/.nvm    
@@ -32,3 +33,6 @@ DB_PORT=3306
 get generated code and launch in browser localhost:3000/launch/###GenCodeGoesHere###
 
 it should bring you to http://www.google.com
+--------------------------------------------------------------------------------------------------------------------------
+v1.2.0
+added a utilty tool to take over the console logs and check for bugs with color coding

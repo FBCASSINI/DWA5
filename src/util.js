@@ -1,19 +1,33 @@
 /**
  * Created by flaviocassini on 1/5/17.
  */
-var www = "aol.com" //hardcoded url
-function returnStringGen(strLength) {
+
+function returnStringGen(){
 
     //random
 
-    var strSource = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnobqrstuvwxyz1234567890' //random characters
+    var strSource = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnobqrstuvwxyz1234567890'
     var strReturn = '' //variable to fill genenerated link
+    var strLength = '9'
     for (var i = 0; i < strLength; i++) {
-        var rand = Math.round(Math.random() * (strSource.length - 1), www);//making the generator by adding math random and math round with my hardcoded url
-        strReturn += strSource.charAt(rand);//picks a random character no need for array
-    }
+      ///making the generator by adding math random and math round
+        strReturn += strSource.charAt((Math.random()) * strSource.length);
+
+      };
 
     return strReturn;
 
 }
-exports.stringGen = returnStringGen;
+exports.returnStringGen = returnStringGen;
+
+
+exports.debug = (title, obj, status) => {
+  const seperator = '\n===================================\n';
+  const output = seperator + title + seperator;
+  if (!status){
+    status = "";
+  }
+  if (process.env.DEBUG){
+    console.log(output, obj, status);
+  }
+};

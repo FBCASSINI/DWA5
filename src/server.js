@@ -1,26 +1,25 @@
-var www = "aol.com"
+const express = require('express');
+const bodyParser = require('body-parser');
+const util = require('./util');
+const app = express();
 
-var util = require('./util.js');
+//var util = require('./util.js');
 //call random gen - return string with 9 length.
 
-var output = util.stringGen(9);
+//var output = util.stringGen(9);
 
-console.log(output);
+//console.log(output);
 
+const port = process.env.PORT || 3000;
 
-var express = require('express');
-var app = express();
-var path = require('path');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true,
 
-// viewed at http://localhost:8080
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
-});
+}));
 
-//routing api with json key value
+app.use('/', require('./routes')(express));
 
-app.get('/api/v1/url', function(req, res){
-    res.json({"items": [{"key": "http://bit.ly/", "value":output}]})
-});
-
-app.listen(3000);
+const server = app.listen(port, () =>  {
+        util.debug('Server Active On', port);
+    });

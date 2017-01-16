@@ -36,3 +36,5 @@ it should bring you to http://www.google.com
 --------------------------------------------------------------------------------------------------------------------------
 v1.2.0
 added a utilty tool to take over the console logs and check for bugs with color coding
+
+v1.3.0 fixed coding style with AirBnB format.
